@@ -15,6 +15,10 @@ jobs:
         with:
           distribution: "adopt"
           java-version: "11"
+      - name: Debug
+        run: |
+          echo "Testing connectivity to SonarQube server..."
+          curl -v ${{ secrets.SONAR_HOST_URL }}
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         with:
