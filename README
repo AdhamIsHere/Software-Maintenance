@@ -54,4 +54,6 @@
     Mark James's excellent Silk icon set (http://famfamfam.com/lab/icons/silk).
     
   Have fun.
-  
+
+  5le da hena
+  sonar-scanner.bat -D"sonar.projectKey=JMemo" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=sqp_a307bcf3bb57606b481b6703a52d5aa261ebee9b"
