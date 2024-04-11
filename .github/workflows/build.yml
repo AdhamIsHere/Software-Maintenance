@@ -19,7 +19,7 @@ jobs:
         with:
           projectBaseDir: ./src
           args: >
-          -Dsonar.projectKey=JMemorize
+            -Dsonar.projectKey=JMemorize
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
