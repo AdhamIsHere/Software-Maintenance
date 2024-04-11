@@ -14,7 +14,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: sonarqube-scan
       - uses: sonarsource/sonarqube-scan-action@master
+      - with:
+          projectbaseDir: ./src
+          args: >
+            -Dsonar.projectKey=JMemorize
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
