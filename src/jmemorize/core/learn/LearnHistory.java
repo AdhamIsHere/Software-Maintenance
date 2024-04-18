@@ -220,7 +220,7 @@ public class LearnHistory
     {
         public long toValue(Calendar c)
         {
-            return c.get(Calendar.DAY_OF_YEAR)+ 1000 * c.get(Calendar.YEAR);
+            return (long) c.get(Calendar.DAY_OF_YEAR)+ 1000 * c.get(Calendar.YEAR);
         }
 
         public DateFormat getFormat()
