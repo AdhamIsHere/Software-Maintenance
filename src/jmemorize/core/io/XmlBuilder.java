@@ -27,6 +27,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -103,10 +104,12 @@ public class XmlBuilder
     
     private static final String LESSON_ZIP_ENTRY_NAME = "lesson.xml";        //$NON-NLS-1$
     private static final String IMAGE_FOLDER         = "images";             //$NON-NLS-1$
-    
-    // we need a fixed formatter in file (not locale depent)
-    private final static DateFormat DATE_FORMAT = DateFormat.getDateTimeInstance(
-        DateFormat.MEDIUM, DateFormat.MEDIUM, Locale.UK);
+
+// we need a fixed formatter in file (not locale depent)
+//    private final static DateFormat DATE_FORMAT = DateFormat.getDateTimeInstance(
+//        DateFormat.MEDIUM, DateFormat.MEDIUM, Locale.UK);
+// Update the date format to match "dd-MMM-yyyy HH:mm:ss" to fix error
+    private final static DateFormat DATE_FORMAT = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss", Locale.UK);
 
 
     
