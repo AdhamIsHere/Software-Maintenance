@@ -335,12 +335,12 @@ public class FormattedText implements Cloneable
     
     private static String escape(String text)
     {
-        return text.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+        return text.replace("<", "&lt;").replace(">", "&gt;");
     }
     
     private static String unescape(String text)
     {
-        return text.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+        return text.replace("&lt;", "<").replace("&gt;", ">");
     }
 
     private static void setupStylesMap()
