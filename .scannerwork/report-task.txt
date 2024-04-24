@@ -2,5 +2,5 @@ projectKey=JMemorize
 serverUrl=http://localhost:9000
 serverVersion=10.5.0.89998
 dashboardUrl=http://localhost:9000/dashboard?id=JMemorize
-ceTaskId=f0154b45-2b3c-4c4a-a9ef-ebaedf558462
-ceTaskUrl=http://localhost:9000/api/ce/task?id=f0154b45-2b3c-4c4a-a9ef-ebaedf558462
+ceTaskId=aec321b9-d502-4470-ab7e-2701f9fae923
+ceTaskUrl=http://localhost:9000/api/ce/task?id=aec321b9-d502-4470-ab7e-2701f9fae923
