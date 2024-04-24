@@ -76,6 +76,7 @@ import javax.swing.text.ViewFactory;
 
 import jmemorize.core.FormattedText;
 import jmemorize.core.Main;
+import jmemorize.core.Settings;
 import jmemorize.gui.LC;
 import jmemorize.gui.Localization;
 import jmemorize.gui.swing.CardFont;
@@ -552,7 +553,8 @@ public class CardSidePanel extends JPanel
     {
         buildImageBar();
         
-        m_textPane.setBackground(ColorConstants.CARD_PANEL_COLOR);
+        m_textPane.setBackground(Settings.isDarkModeEnabled()?ColorConstants.CARD_PANEL_COLOR_DARK:ColorConstants.CARD_PANEL_COLOR);
+        m_textPane.setForeground(Settings.isDarkModeEnabled()?Color.WHITE:Color.BLACK);
         
         m_textScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         m_textScrollPane.setBorder(null);

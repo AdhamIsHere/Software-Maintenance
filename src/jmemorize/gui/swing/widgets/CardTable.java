@@ -62,6 +62,7 @@ import jmemorize.gui.LC;
 import jmemorize.gui.Localization;
 import jmemorize.gui.swing.CardFont;
 import jmemorize.gui.swing.CardStatusIcons;
+import jmemorize.gui.swing.ColorConstants;
 import jmemorize.gui.swing.SelectionProvider;
 import jmemorize.gui.swing.CardFont.FontAlignment;
 import jmemorize.gui.swing.CardFont.FontType;
@@ -826,10 +827,16 @@ public class CardTable extends JTable implements Settings.CardFontObserver,
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column)
     {
         Component cell = super.prepareRenderer(renderer, row, column);
-        
-        Color background = (row % 2 == 0) ? m_highlight : getBackground();
+        Color background=null;
+        if(Settings.isDarkModeEnabled()){
+            background = (row % 2 == 0) ? ColorConstants.CARD_SIDE_BAR_COLOR_DARK : ColorConstants.CARD_SIDE_BAR_COLOR_DARK.brighter();
+        }else{
+            background = (row % 2 == 0) ? m_highlight : getBackground();
+        }
+
         if (isCellSelected(row, column)) background = getSelectionBackground();
         cell.setBackground(background);
+        cell.setForeground(Settings.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
         
         return cell;
     }

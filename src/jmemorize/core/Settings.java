@@ -18,17 +18,14 @@
  */
 package jmemorize.core;
 
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Frame;
-import java.awt.Point;
+import java.awt.*;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.prefs.Preferences;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import jmemorize.core.learn.LearnSettings;
 import jmemorize.core.learn.LearnSettings.SchedulePreset;
@@ -47,6 +44,37 @@ import jmemorize.util.PreferencesTool;
  */
 public class Settings
 {
+    // Dark mode key
+    private final static String DARK_MODE_ENABLED = "dark.mode.enabled"; //$NON-NLS-1$
+
+    // Method to store dark mode enabled setting
+    public static void storeDarkModeEnabled(boolean enabled) {
+        PREFS.putBoolean(DARK_MODE_ENABLED, enabled);
+    }
+
+    // Method to load dark mode enabled setting
+    public static boolean loadDarkModeEnabled() {
+        return PREFS.getBoolean(DARK_MODE_ENABLED, false);
+    }
+    // Dark Mode
+    private static boolean darkModeEnabled = false;
+
+    public static boolean isDarkModeEnabled() {
+        return darkModeEnabled;
+    }
+
+    public static void setDarkModeEnabled(boolean enabled) {
+        darkModeEnabled = enabled;
+    }
+    public static void refreshAllGUI(Component component) {
+        if (component instanceof Container) {
+            Container container = (Container) component;
+            for (Component child : container.getComponents()) {
+                refreshAllGUI(child);
+            }
+        }
+        SwingUtilities.updateComponentTreeUI(component);
+    }
     /**
      * Listens for changes to the currently set card font which can be set by
      * using the preferences window.

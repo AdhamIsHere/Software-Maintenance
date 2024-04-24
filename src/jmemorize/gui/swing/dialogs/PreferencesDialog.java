@@ -18,10 +18,7 @@
  */
 package jmemorize.gui.swing.dialogs;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -30,20 +27,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 
-import javax.swing.AbstractAction;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.KeyStroke;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
@@ -58,12 +42,14 @@ import jmemorize.gui.Localization;
 import jmemorize.gui.swing.CardFont;
 import jmemorize.gui.swing.CardFont.FontAlignment;
 import jmemorize.gui.swing.CardFont.FontType;
+import jmemorize.gui.swing.ColorConstants;
 import jmemorize.gui.swing.frames.MainFrame;
 
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.factories.ButtonBarFactory;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import jmemorize.gui.swing.panels.DeckTablePanel;
 
 /**
  * A modal dialog that is used to set different user preferences like font and
@@ -71,7 +57,7 @@ import com.jgoodies.forms.layout.FormLayout;
  * 
  * @author djemili
  */
-public class PreferencesDialog extends JDialog
+public class PreferencesDialog extends JDialog implements ColorConstants
 {
     private static final String[] FONT_SIZES  = {"8", "9", "10","11","12", "14", 
         "16", "18","20", "22", "24","26","28", "32", "36","72", "92", "128"};
@@ -95,6 +81,7 @@ public class PreferencesDialog extends JDialog
     private JComboBox m_langComboBox    = new JComboBox();
     private JCheckBox m_zippedLessonBox = new JCheckBox(
         Localization.get(LC.PREFERENCES_USE_GZIP));
+    private JCheckBox m_darkModeCheckbox = new JCheckBox("Dark Mode");
     
     private JButton   m_applyButton     = new JButton(Localization.get(LC.APPLY));
     
@@ -111,7 +98,12 @@ public class PreferencesDialog extends JDialog
         loadFonts();
         
         m_settingsPanel = buildSettingsPanel(); // needs to be built after combo box!
-        
+        // dark mode
+        m_darkModeCheckbox.setSelected(Settings.loadDarkModeEnabled());
+
+
+
+
         // language combo box
         List<Locale> locales = Localization.getAvailableLocales();
         m_langComboBox.setModel(new DefaultComboBoxModel(formatLocaleStrings(locales)));
@@ -224,8 +216,41 @@ public class PreferencesDialog extends JDialog
                 updateFontPreview();
             }
         });
+        // dark mode
+        m_darkModeCheckbox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                boolean darkModeEnabled = m_darkModeCheckbox.isSelected();
+                applyDarkMode(darkModeEnabled);
+            }
+        });
     }
-    
+
+
+    private void applyDarkMode(boolean darkModeEnabled) {
+        Color backgroundColor = darkModeEnabled ? new Color(59,59,59): Color.WHITE;
+        Color textColor = darkModeEnabled ? Color.WHITE : Color.BLACK;
+
+        Settings.setDarkModeEnabled(darkModeEnabled);
+//        // Set background color
+//        getContentPane().setBackground(backgroundColor);
+//
+//        // Set text color for components
+//        m_previewLabel.setForeground(textColor);
+//        m_langComboBox.setForeground(textColor);
+//        m_zippedLessonBox.setForeground(textColor);
+//
+//        // Adjust other UI components as needed
+//        // For example:
+//        // m_button.setBackground(buttonColor);
+//        // m_button.setForeground(textColor);
+//        // m_panel.setBackground(panelColor);
+
+        // Update UI to reflect changes
+        SwingUtilities.updateComponentTreeUI(this);
+
+    }
+
+
     private JPanel buildMainPanel()
     {
         // build main panel
@@ -260,27 +285,29 @@ public class PreferencesDialog extends JDialog
         
         return builder.getPanel();
     }
-    
-    private JPanel buildGeneralPanel()
-    {
+
+    private JPanel buildGeneralPanel() {
         // build panel
         FormLayout layout = new FormLayout(
-            "p, 9dlu, p:grow",      // columns //$NON-NLS-1$
-            "p, 3dlu, p, 9dlu, p"); // rows    //$NON-NLS-1$
-        
+                "p, 9dlu, p:grow",      // columns //$NON-NLS-1$
+                "p, 3dlu, p, 9dlu, p, 9dlu, p"); // rows    //$NON-NLS-1$
+
         CellConstraints cc = new CellConstraints();
-        
+
         DefaultFormBuilder builder = new DefaultFormBuilder(layout);
         builder.setDefaultDialogBorder();
-        
-        builder.addSeparator(Localization.get(LC.GENERAL),      cc.xyw(1, 1, 3));
-        builder.addLabel(Localization.get(LC.PREFERENCES_LANG), cc.xy (1, 3));
-        builder.add(m_langComboBox,                             cc.xy (3, 3));
-        builder.add(m_zippedLessonBox,                          cc.xyw(1, 5, 3));
-        
+
+        builder.addSeparator(Localization.get(LC.GENERAL), cc.xyw(1, 1, 3));
+        builder.addLabel(Localization.get(LC.PREFERENCES_LANG), cc.xy(1, 3));
+        builder.add(m_langComboBox, cc.xy(3, 3));
+        builder.add(m_zippedLessonBox, cc.xyw(1, 5, 3));
+        // Dark Mode
+        builder.add(m_darkModeCheckbox, cc.xyw(1, 7, 3));
+
         return builder.getPanel();
     }
-    
+
+
     /**
      * Build the panel that is responsible for customizing the font.
      */
@@ -326,6 +353,7 @@ public class PreferencesDialog extends JDialog
         builder.add(m_verticalAlignBox,                                      cc.xyw( 1, 9, 5));
         
         builder.add(previewPanel,                                            cc.xyw( 1,11, 5));
+
         
         return builder.getPanel();
     }
@@ -443,6 +471,10 @@ public class PreferencesDialog extends JDialog
         Settings.storeFont(FontType.TABLE_FLIP, m_fonts.get(5));
         
         Settings.storeSaveCompressed(m_zippedLessonBox.isSelected());
+        // Dark mode setting
+        Settings.storeDarkModeEnabled(m_darkModeCheckbox.isSelected());
+        SwingUtilities.updateComponentTreeUI(this);
+        Settings.refreshAllGUI(getRootPane());
     }
     
     /**

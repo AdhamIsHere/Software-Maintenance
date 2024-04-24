@@ -18,8 +18,7 @@
  */
 package jmemorize.gui.swing.panels;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -39,6 +38,7 @@ import javax.swing.border.EtchedBorder;
 import jmemorize.core.Card;
 import jmemorize.core.Category;
 import jmemorize.core.Main;
+import jmemorize.core.Settings;
 import jmemorize.core.learn.LearnSession;
 import jmemorize.core.learn.LearnSessionObserver;
 import jmemorize.core.learn.LearnSettings;
@@ -261,7 +261,7 @@ public class LearnPanel extends JPanel implements SelectionProvider,
 
     private JPanel buildSidebarPanel()
     {
-        m_timerPanel.setBackground(ColorConstants.SIDEBAR_COLOR);
+        m_timerPanel.setBackground(Settings.isDarkModeEnabled()?ColorConstants.SIDEBAR_COLOR_DARK:ColorConstants.SIDEBAR_COLOR);
         m_timerPanel.setPreferredSize(new Dimension(140, 22));
         
         m_currentCardProgressLabel = new JLabel(Localization.getEmpty(LC.LEARN_CARD));
@@ -277,7 +277,8 @@ public class LearnPanel extends JPanel implements SelectionProvider,
         m_currentCardProgressBar.setStringPainted(true);
         m_currentCardProgressBar.setPreferredSize(new Dimension(140, 22));
         
-        m_cardCounterPanel.setBackground(ColorConstants.SIDEBAR_COLOR);
+        m_cardCounterPanel.setBackground(Settings.isDarkModeEnabled()?ColorConstants.SIDEBAR_COLOR_DARK:ColorConstants.SIDEBAR_COLOR);
+        m_cardCounterPanel.setForeground(Settings.isDarkModeEnabled()?Color.WHITE: Color.BLACK);
         JButton stopLearningButton = new JButton(new StopAction());
         
         // build it using FormLayout
@@ -302,7 +303,7 @@ public class LearnPanel extends JPanel implements SelectionProvider,
         builder.add(stopLearningButton,                    cc.xy(1, 16));
         
         JPanel sidePanel = builder.getPanel();
-        sidePanel.setBackground(ColorConstants.SIDEBAR_COLOR);
+        sidePanel.setBackground(Settings.isDarkModeEnabled()?ColorConstants.SIDEBAR_COLOR_DARK:ColorConstants.SIDEBAR_COLOR);
         sidePanel.setBorder(new EtchedBorder());
         return sidePanel;
     }

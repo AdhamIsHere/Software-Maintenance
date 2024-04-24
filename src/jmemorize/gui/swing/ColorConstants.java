@@ -1,7 +1,7 @@
 /*
  * jMemorize - Learning made easy (and fun) - A Leitner flashcards tool
  * Copyright(C) 2004-2008 Riad Djemili and contributors
- * 
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 1, or (at your option)
@@ -22,7 +22,7 @@ import java.awt.Color;
 
 /**
  * A simple container for all color constants used.
- * 
+ *
  * @author djemili
  */
 public interface ColorConstants
@@ -34,8 +34,17 @@ public interface ColorConstants
     public final static Color PARTIAL_LEARNED_CARDS = LEARNED_CARDS.brighter();
 
     public final static Color SELECTION_COLOR       = new Color(0, 80, 107);
-    public static final Color SIDEBAR_COLOR         = new Color(225, 230, 235);
 
+    //Light Mode
+    public static final Color SIDEBAR_COLOR         = new Color(225, 230, 235);
     public static final Color CARD_SIDE_BAR_COLOR   = new Color(255, 240, 200);
-    static final Color        CARD_PANEL_COLOR      = Color.WHITE;
+    static final Color        CARD_PANEL_COLOR     = Color.WHITE;
+
+    //Dark Mode
+
+    public static final Color SIDEBAR_COLOR_DARK         = new Color(131, 131, 131);
+    public static final Color CARD_SIDE_BAR_COLOR_DARK   = new Color(91, 91, 91);
+    static final Color        CARD_PANEL_COLOR_DARK      = new Color(38, 38, 38);
+
+
 }

@@ -36,11 +36,9 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
 
-import jmemorize.core.Card;
-import jmemorize.core.Category;
-import jmemorize.core.CategoryObserver;
-import jmemorize.core.Main;
+import jmemorize.core.*;
 import jmemorize.gui.Localization;
+import jmemorize.gui.swing.ColorConstants;
 import jmemorize.gui.swing.actions.AbstractAction2;
 import jmemorize.gui.swing.frames.EditCardFrame;
 import jmemorize.gui.swing.frames.MainFrame;
@@ -54,6 +52,10 @@ import jmemorize.gui.swing.widgets.CardTable;
  */
 public class DeckTablePanel extends JPanel implements CategoryObserver
 {
+
+    public void refreshGUI(){
+        SwingUtilities.updateComponentTreeUI(this);
+    }
     private class NextDeckAction extends AbstractAction2
     {
         public NextDeckAction()
@@ -112,6 +114,7 @@ public class DeckTablePanel extends JPanel implements CategoryObserver
     
     // swing elements
     private CardTable          m_cardTable;
+
     
     /** 
      * Creates new form CardsPanel 
@@ -209,7 +212,8 @@ public class DeckTablePanel extends JPanel implements CategoryObserver
 
         JScrollPane scrollPane = new JScrollPane(m_cardTable);
         Color color = UIManager.getColor("Table.background"); //$NON-NLS-1$
-        scrollPane.getViewport().setBackground(color);
+        scrollPane.getViewport().setBackground(Settings.isDarkModeEnabled()? ColorConstants.CARD_SIDE_BAR_COLOR_DARK:color);
+        scrollPane.setForeground(Settings.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
         
         m_cardTable.hookCardContextMenu(scrollPane);
         m_cardTable.addMouseListener(new java.awt.event.MouseAdapter() {

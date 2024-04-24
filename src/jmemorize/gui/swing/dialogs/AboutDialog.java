@@ -46,10 +46,12 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import jmemorize.core.Main;
+import jmemorize.core.Settings;
 import jmemorize.gui.LC;
 import jmemorize.gui.Localization;
 
 import com.jgoodies.forms.factories.ButtonBarFactory;
+import jmemorize.gui.swing.ColorConstants;
 
 /**
  * A about dialog that shows some basic info, the license, the Java properties
@@ -112,7 +114,8 @@ public class AboutDialog extends JDialog
         titleLabel.setIcon(icon);
         
         JPanel titlePanel = new JPanel();
-        titlePanel.setBackground(Color.WHITE);
+        titlePanel.setBackground(Settings.isDarkModeEnabled() ? ColorConstants.CARD_PANEL_COLOR_DARK :Color.WHITE);
+        titlePanel.setForeground(Settings.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
         titlePanel.setBorder(new EtchedBorder());
         titlePanel.setLayout(new BorderLayout());
         titlePanel.add(titleLabel, BorderLayout.CENTER);

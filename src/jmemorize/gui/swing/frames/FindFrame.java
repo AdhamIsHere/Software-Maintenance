@@ -262,7 +262,8 @@ public class FindFrame extends EscapableFrame
 
         JScrollPane scrollPane = new JScrollPane(m_cardTable);
         Color color = UIManager.getColor("Table.background"); //$NON-NLS-1$
-        scrollPane.getViewport().setBackground(color);
+        scrollPane.getViewport().setBackground(Settings.isDarkModeEnabled()? color.darker() : color);
+        scrollPane.setForeground(Settings.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
         scrollPane.setPreferredSize(new Dimension(500, 200));
 
         FormLayout layout = new FormLayout(

@@ -18,9 +18,7 @@
  */
 package jmemorize.gui.swing.panels;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
@@ -350,8 +348,8 @@ public class CardPanel extends JPanel
             m_text = text;
             m_sides = sides;
             m_showSideButtons.add(this);
-            
-            setBackground(ColorConstants.CARD_SIDE_BAR_COLOR);
+
+            setBackground(Settings.isDarkModeEnabled()?ColorConstants.CARD_SIDE_BAR_COLOR_DARK:ColorConstants.CARD_SIDE_BAR_COLOR);
             addActionListener(this);
             
 //            Character character = new Character(Integer.toString(index).charAt(0));
@@ -653,7 +651,8 @@ public class CardPanel extends JPanel
         toolBar.add(new ShowCardSideButton("Flipside", 1));
         
         toolBar.setBorder(new EtchedBorder());
-        toolBar.setBackground(ColorConstants.CARD_SIDE_BAR_COLOR);
+        toolBar.setBackground(Settings.isDarkModeEnabled()?ColorConstants.CARD_SIDE_BAR_COLOR_DARK:ColorConstants.CARD_SIDE_BAR_COLOR);
+        toolBar.setForeground(Settings.isDarkModeEnabled()? Color.WHITE:Color.BLACK);
         
         toolBar.setFloatable(false);
         return toolBar;

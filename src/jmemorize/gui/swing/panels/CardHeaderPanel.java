@@ -31,6 +31,7 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import jmemorize.core.Card;
+import jmemorize.core.Settings;
 import jmemorize.gui.LC;
 import jmemorize.gui.Localization;
 import jmemorize.gui.swing.ColorConstants;
@@ -69,7 +70,7 @@ public class CardHeaderPanel extends JPanel
     private void initComponents()
     {
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-        setBackground(ColorConstants.SIDEBAR_COLOR);
+        setBackground(Settings.isDarkModeEnabled()?ColorConstants.SIDEBAR_COLOR_DARK:ColorConstants.SIDEBAR_COLOR);
         
         m_label.setVerticalTextPosition(JLabel.TOP);
         m_label.setBorder(new EmptyBorder(5, 10, 5, 5));

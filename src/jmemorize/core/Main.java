@@ -540,6 +540,9 @@ public class Main extends Observable implements LearnSessionProvider,
     public static void main(String args[]) 
     {
         File file = args.length >= 1 ? new File(args[0]) : null;
+        Settings.setDarkModeEnabled(true);
+        System.out.println(Settings.isDarkModeEnabled());
+
         Main.getInstance().run(file);        
     }
 }
