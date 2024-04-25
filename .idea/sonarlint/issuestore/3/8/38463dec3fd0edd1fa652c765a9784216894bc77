@@ -1,0 +1,13 @@
+
+ 	java:S116"^Rename this field "m_selectionProvider" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ”›8ò§Ê¦ñ1J$83de50c6-b00f-4b65-811e-146115fd4081
+x
+java:S1948"5Make "m_selectionProvider" transient or serializable.(ƒ”›8ó§Ê¦ñ1J$a1d3e522-124b-4b42-a1a5-00a120895593
+†
+java:S1155>">Use isEmpty() to check whether the collection is empty or not.(ù¯¹Îüÿÿÿÿ8ø§Ê¦ñ1J$a2d5d33a-0633-4a64-b8cf-41c207f5ffb2
+ƒ	java:S125F"<This block of commented-out lines of code should be removed.(þåüŸüÿÿÿÿ8ù§Ê¦ñ1J$41cdfdb4-5057-47a3-8527-5915ed7fe198
+Q
+java:S1128"4Remove this unused import 'java.awt.event.KeyEvent'.(¬ðÝÍ8å€í¦ñ1
+O
+java:S1128"-Remove this unused import 'jmemorize.gui.LC'.(¹à‰áûÿÿÿÿ8å€í¦ñ1
+Y
+java:S1128"7Remove this unused import 'jmemorize.gui.Localization'.(ÊÜ¦ûÿÿÿÿ8æ€í¦ñ1

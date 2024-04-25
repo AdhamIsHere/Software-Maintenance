@@ -1,0 +1,30 @@
+
+
+java:S2184#"FCast one of the operands of this multiplication operation to a "long".(ºÅêøÿÿÿÿ8Ì€Ú¦ñ1J$3d41e49d-d2c9-493b-be9d-1c3c18fc7c5c
+—	java:S116&"URename this field "m_category" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯™ø8ã€Ú¦ñ1J$7bb8b042-ca97-4a00-939e-1ff24f9bc64c
+™	java:S116'"RRename this field "m_level" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û¡ú®úÿÿÿÿ8ã€Ú¦ñ1J$fdd0be60-56fe-4a85-b5b4-6830e3d26a62
+˜	java:S116*"VRename this field "m_frontSide" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ•ºó8ã€Ú¦ñ1J$e6d5b0c9-11f2-4fe9-9d80-20531244ff2a
+œ	java:S116+"URename this field "m_backSide" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½‹³—øÿÿÿÿ8ã€Ú¦ñ1J$11d36c6f-ae66-4061-8b6a-1ef66f546abf
+	java:S116."WRename this field "m_dateTested" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸæÇèøÿÿÿÿ8ã€Ú¦ñ1J$a763c6f1-ff94-4d97-ae30-194280d71848
+Ÿ	java:S116/"XRename this field "m_dateExpired" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡˜¤üÿÿÿÿ8ã€Ú¦ñ1J$404c20f1-31fd-4b01-bf4c-c4b06b1e80b9
+™	java:S1160"XRename this field "m_dateCreated" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßô¬E8ã€Ú¦ñ1J$170a721c-df96-427a-9a38-9cc7503c33bd
+ 	java:S1161"YRename this field "m_dateModified" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úãĞØşÿÿÿÿ8ã€Ú¦ñ1J$2db4c25e-8378-4776-8c95-f0159b29c90a
+š	java:S1162"XRename this field "m_dateTouched" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†Ê€Õ8ã€Ú¦ñ1J$a495691b-24ef-4f60-b387-14812107b618
+™	java:S1165"WRename this field "m_testsTotal" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñĞûŠ8ã€Ú¦ñ1J$a68270f6-e53a-48a1-899e-c4ddbb6c6006
+—	java:S1166"URename this field "m_testsHit" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä„¨­8ã€Ú¦ñ1J$eadca5c0-29c4-4934-9716-9ffead00bd9a
+Ÿ	java:S1167"]Rename this field "m_frontHitsCorrect" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©´ïî8ã€Ú¦ñ1J$8911208d-1d59-4973-9179-a7396c72b48a
+£	java:S1168"\Rename this field "m_backHitsCorrect" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒÎµ¿úÿÿÿÿ8ã€Ú¦ñ1J$359fc32d-94c9-41f1-a80e-49b343e79ec7
+	java:S100`"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦é¯f8†ùÜ¦ñ1J$fc5d7c11-bea4-4479-a495-57fe53427ae6
+•	java:S100d"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íıûûÿÿÿÿ8ÿÛİ¦ñ1J$2b3ae138-1c5d-458b-9f8a-6470c6b7ff36
+{
+java:S1135—"2Complete the task associated to this TODO comment.(÷Ô˜»şÿÿÿÿ8í€Ú¦ñ1J$8addb602-5ca7-47dc-a7b9-05fb1ebb66f4
+{
+java:S1135¨"2Complete the task associated to this TODO comment.(÷Ô˜»şÿÿÿÿ8î€Ú¦ñ1J$e87f391f-dcd2-4d58-b3b9-0e4caf4e4f67
+{
+java:S1135Â"2Complete the task associated to this TODO comment.(÷Ô˜»şÿÿÿÿ8ï€Ú¦ñ1J$42b61f7a-95b4-487f-9650-e5d98d6d08b6
+œ
+java:S2975•"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(¯ÔÚ“ùÿÿÿÿ8ö€Ú¦ñ1J$08de5d11-7ee4-48ea-ac5a-876fb8a38a7b
+{
+java:S1135Ù"2Complete the task associated to this TODO comment.(îÎÒ¶üÿÿÿÿ8û€Ú¦ñ1J$a38266de-7fe8-4523-b346-1a2fd6f36c9e
+q
+java:S1128"ORemove this unused import 'jmemorize.gui.swing.actions.edit.ReverseCardAction'.(†³Ş‚ûÿÿÿÿ8ª‚í¦ñ1
