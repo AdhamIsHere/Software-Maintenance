@@ -66,13 +66,7 @@ import jmemorize.gui.swing.SelectionProvider;
 import jmemorize.gui.swing.CardFont.FontAlignment;
 import jmemorize.gui.swing.CardFont.FontType;
 import jmemorize.gui.swing.actions.LearnAction;
-import jmemorize.gui.swing.actions.edit.AddCardAction;
-import jmemorize.gui.swing.actions.edit.CopyAction;
-import jmemorize.gui.swing.actions.edit.CutAction;
-import jmemorize.gui.swing.actions.edit.EditCardAction;
-import jmemorize.gui.swing.actions.edit.PasteAction;
-import jmemorize.gui.swing.actions.edit.RemoveAction;
-import jmemorize.gui.swing.actions.edit.ResetCardAction;
+import jmemorize.gui.swing.actions.edit.*;
 import jmemorize.gui.swing.frames.MainFrame;
 import jmemorize.gui.swing.panels.StatusBar;
 import jmemorize.util.Arrow;
@@ -1042,7 +1036,8 @@ public class CardTable extends JTable implements Settings.CardFontObserver,
         menu.add(new AddCardAction(this));
         menu.add(new EditCardAction(this));
         menu.add(new ResetCardAction(this));
-        menu.add(new RemoveAction(this));       
+        menu.add(new RemoveAction(this));
+        menu.add(new ReverseCardAction(this));
         menu.addSeparator();
         
         menu.add(new CopyAction(this));

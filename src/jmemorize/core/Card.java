@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 import jmemorize.core.CardSide.CardSideObserver;
+import jmemorize.gui.swing.actions.edit.ReverseCardAction;
 
 /**
  * A flash card that has a front/flip side and can be learned.
@@ -90,6 +91,14 @@ public class Card implements Events, Cloneable
         m_backSide = backSide;
         
         attachCardSideObservers();
+    }
+
+    public void setM_frontSide(CardSide frontSide) {
+        this.m_frontSide = frontSide;
+    }
+
+    public void setM_backSide(CardSide backSide) {
+        this.m_backSide = backSide;
     }
 
     /**
